@@ -1,7 +1,7 @@
 setwd("C:/Coursera/Data") 
 
 # 2007-02-01 and 2007-02-02
-electric <- as.data.frame(read.table("household_power_consumption.txt", header=TRUE, sep = ";"))
+electric <- as.data.frame(read.table("household_power_consumption.txt", header=TRUE, sep = ";", na.strings="?"))
 
 electric$Date_Time = paste(electric$Date, electric$Time, sep=" ")
 
@@ -16,5 +16,5 @@ subset_electric = subset(electric, Date_Time >= strptime("2007-02-01 00:00:00", 
 # summary(subset_electric$Global_active_power)
 
 png(file="plot2.png", width=480, height=480, units="px")
-with(subset_electric, plot(Date_Time, Global_active_power / 500, type="l", xlab="", ylab="Global Active Power (kilowatts)"))
+with(subset_electric, plot(Date_Time, Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)"))
 dev.off()

@@ -1,7 +1,7 @@
 setwd("C:/Coursera/Data") 
 
 # 2007-02-01 and 2007-02-02
-electric <- as.data.frame(read.table("household_power_consumption.txt", header=TRUE, sep = ";"))
+electric <- as.data.frame(read.table("household_power_consumption.txt", header=TRUE, sep = ";", na.strings="?"))
 
 electric$Date_Time = paste(electric$Date, electric$Time, sep=" ")
 
